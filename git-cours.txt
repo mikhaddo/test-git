@@ -17,6 +17,10 @@ git diff --cached    ## entre les versions add et présentes
 git diff 7aeb89fab3ea9bafb1024c59fcb011be11f0898f   ## avec le log ou plusieurs logs.
 git commit --amend -m "real maj"        ## quand on a deja commit mais qu'on veut encore changer un file
 git reset HEAD alo.html                 ## après un git add qu'on veut dé-basculer
+git reset --hard                        ## vire tout et reprend le dernier commit
+git reset 75e2289 --hard                ## vire tout et reprend à un commit random
+git checkout 1f77bd README.md           ## reprends une version précédente du fichier spécifié
+git checkout -- README.md               ##  rebasculte version précédente directe !
 
 // exercice : test git commit --amend (log last commits)
 a29e8dc6c81
