@@ -1,2 +1,6 @@
 # test-git
-juste un approfondissement de git
+## description
+Juste un approfondissement de git
+
+~ little test of git
+
