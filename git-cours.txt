@@ -8,3 +8,4 @@ git push  ## need password
 git pull ## si on a pas touché au projet depuis longtemps
 git flech orgin
 git merge origin/master - m "fusion"
+touche .gitignore # *.log ; !site-ok.log
