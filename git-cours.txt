@@ -6,5 +6,5 @@ git add .
 git commit "it is workin"
 git push  ## need password
 git pull ## si on a pas touché au projet depuis longtemps
-git fletch orgin/master
-git merge
+git flech orgin
+git merge origin/master - m "fusion"
