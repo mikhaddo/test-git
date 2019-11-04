@@ -8,4 +8,18 @@ git push  ## need password
 git pull ## si on a pas touché au projet depuis longtemps
 git flech orgin
 git merge origin/master - m "fusion"
-touche .gitignore # *.log ; !site-ok.log
+touch .gitignore # *.log ; !site-ok.log
+git log # or git log -1
+git log --pretty=oneline -5
+gitk                 ## interface graphique minimalist (windosse only)
+git diff
+git diff --cached    ## entre les versions add et présentes
+git diff 7aeb89fab3ea9bafb1024c59fcb011be11f0898f   ## avec le log ou plusieurs logs.
+git commit --amend -m "real maj"        ## quand on a deja commit mais qu'on veut encore changer un file
+git reset HEAD alo.html                 ## après un git add qu'on veut dé-basculer
+
+// exercice : test git commit --amend (log last commits)
+a29e8dc6c81
+953dde807b5
+75e2289cd21
+ac34f5bc3f9
