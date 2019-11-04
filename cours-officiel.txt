@@ -1,0 +1,73 @@
+///// Installation :
+-git init							= Créer un nouveau dépôt dans un dossier
+-git clone X						= Télécharger et installer un dépôt déjà existant dans un dossier (x = url du dépôt distant)
+
+
+///// Configurations :
+-git config user.name "X"	= Assigner X comme nom qui apparaîtra dans les logs
+-git config user.email "X"	= Assigner X comme mail qui apparaîtra dans les logs
+-git config --global user.name "X"	= Assigner X comme nom qui apparaîtra dans les logs (globale)
+-git config --global user.email "X"	= Assigner X comme mail qui apparaîtra dans les logs (globale)
+
+
+///// Utilisations :
+-git status							= Donne le détail des fichiers non indexés et non validés dans le dépôt (en rouge = non indexés, en vert = indexé mais non validé)
+-git add X							= Indexe le fichier spécifié X (git add * ajoutera d'un coup tous les fichiers non indexés)
+-git diff							= Liste les différences entre les fichiers du dépôts et les fichiers indexés
+-git commit -m "x"					= Crée un commit ajoutant au dépôt tous les fichiers indexés (fichiers en vert dans le git status). ATTENTION obligation de mettre le paramètre -m avec un message décrivant le travail réalisé dans ce commit entre les guillemets.
+-git push							= Envoi les derniers commits créés sur le dépôt distant
+-git log							= Affiche les logs des commits réalisés (-x pour afficher les x derniers commits, -p pour voir les détails, --pretty=oneline pour compacter en une ligne)
+-gitk								= Interface graphique de l'historique du dépôt
+-git reset HEAD X					= Enleve le fichier X de l'index (passe le fichier du vert au rouge dans git status)
+-git checkout -- X					= Annule tous les changements réalisés sur le fichier X dans l'espace de travail depuis le dernier commit
+-git fetch origin					= Récupère les derniers commits réalisés sur le dépôt distant pour fusionner avec le dépôt local
+-git pull							= Permet de mettre à jour le dépôt local avec le dépôt distant
+
+
+///// Branches :
+-git merge X						= Fusionne la branche X avec la branche sur laquelle on se trouve
+-git checkout X						= Charge la branche X dans l'espace de travail
+-git branch							= Liste toutes les branches existantes
+-git branch -d X					= Supprime la branche X
+-git branch X					= Crée une branche X qui sera une copie de la branche sur laquelle on se trouve
+
+
+
+Lien: https://git-scm.com/book/fr/v1/D%C3%A9marrage-rapide
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+Cloner un dépôt:
+
+	1 - git clone X
+	2 - git config user.name "X" (x = nom)
+	3 - git config user.email "X" (x = email)
+	4 - git config --global user.name "X" (x = nom)
+	5 - git config --global user.email "X" (x = email)
+	
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+Travailler sur le projet:
+
+	1 - git pull (UNIQUEMENT SI AUCUN TRAVAIL EN COURS SUR LE PROJET EN LOCAL : permet de récupérer la dernière version du projet)
+	
+	// Après avoir finit le travail sur le projet:
+	
+	2 - git status 											(liste les changements réalisés sur l'espace de travail, à ce stade tout doit être rouge)
+	3 - git add . 											(ajoute tous les fichiers modifiés à l'espace de validation)
+	4 - git status 											(à ce stade tout doit être vert, sinon recommencer depuis l'étape 2)
+	5 - git commit -m "Description de la mise à jour" 		(valide les modifications des fichiers ajoutés)
+	6 - git status 											(si tout est blanc (ni de rouge, ni de vert), alors passer à la suite, sinon refaire depuis l'étape 2)
+	7 - git push 											(envoi les modifications validées au serveur.)
+	
+// Si l'étape 7 donne une erreur de type "ERROR Rejected", cela veut dire que quelqu'un d'autre a effectué d'autres mofidications sur le projet. Dans ce cas, continuer à l'étape 8.
+	8 - git fetch origin 									(permet de récupérer les dernières modifications du projet)
+	9 - git merge origin/master -m "fusion" 				(fusionne les modifications récupérés précédement avec nos modifications.)
+// SI ERREUR de type "conflict", régler les fichiers concernés et refaire depuis l'étape 2
+	10 - git push											(envoi les modifications validées au serveur.)
+// Si il y a encore une erreur, quelqu'un a encore pu modifier entre temps le projet sur le serveur, donc recommencer à l'étape 8
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+Éditeur VIM :
+
+a = mode insertion
+échap = sortir du mode insertion
+:wq + entré = valider le message et quitter
